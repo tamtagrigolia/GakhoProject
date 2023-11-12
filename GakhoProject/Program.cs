@@ -1,8 +1,26 @@
+using GakhoProject.Configuration;
+using GakhoProject.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddDbContext<AplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("SQLServerConnection")));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 1;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
 
+    options.User.RequireUniqueEmail = false;
+}).AddEntityFrameworkStores<AplicationDbContext>();
+builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

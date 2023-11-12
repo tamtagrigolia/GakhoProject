@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+
 }
 
 @media (min-width: 768px) {
@@ -15,4 +16,21 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+.TamT{
+ /*   width:600px;
+    background-color : Purple;*/
+}
+
+.Gx{
+/*    display: flex;
+    justify-content:space-around;
+    background-color:black;
+    width:1200px;*/
+}
+.Gx{
+    width:900px;
+    display:flex;
+    justify-content:space-around;
+    background-color:red;
 }
