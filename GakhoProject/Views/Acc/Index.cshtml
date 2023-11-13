@@ -1,10 +1,10 @@
 ﻿@model UserRegistraionModel
 
-<h1>Registration</h1>
+<h1 class="PH"> Registration</h1>
 <hr />
-<div class="row">
-    <div class="col">
-        <form asp-controller="FunClub" asp-action="Index">
+<div class="Reg row">
+
+        <form asp-controller="Acc" asp-action="Login">
             <div class="mb-3">
                 <label class="form-label" asp-for="Email"></label>
                 <input class="form-control" asp-for="Email" />
@@ -16,7 +16,7 @@
                 <span class="text-danger" asp-validation-for="Password"></span>
             </div>
 
-            <div class="mb-3">
+            <div class="Reg mb-3">
                 <label class="form-label" asp-for="ConfirmPassword"></label>
                 <input class="form-control" asp-for="ConfirmPassword" />
                 <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
