@@ -55,15 +55,11 @@ body {
 .Reg {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
+    position:relative;
     color: black;
-    background-repeat: no-repeat;
-    background-image: url("https://scontent.ftbs10-1.fna.fbcdn.net/v/t39.30808-6/361203522_3974053072821339_2712664260841874473_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eaR26n9IV_MAX9RvQkE&_nc_ht=scontent.ftbs10-1.fna&oh=00_AfDRpkwHRgt3M25R7pXCgorXJC5g4qVPGawTrDDe5WzRUg&oe=6556C0DD")
 }
+.
 
-.Reg image{
-    height:700px;
-    background-repeat:no-repeat;
-}
 
 .Reg input{
     width:300px;
