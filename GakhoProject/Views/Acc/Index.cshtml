@@ -1,10 +1,10 @@
 ﻿@model UserRegistraionModel
+<img  src="https://scontent.ftbs10-1.fna.fbcdn.net/v/t39.30808-6/361203522_3974053072821339_2712664260841874473_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eaR26n9IV_MAX9RvQkE&_nc_ht=scontent.ftbs10-1.fna&oh=00_AfDRpkwHRgt3M25R7pXCgorXJC5g4qVPGawTrDDe5WzRUg&oe=6556C0DD" class="d-block w-100" alt="...">
+<h1 class="PH"> Registration</h1>
 
-<h1>Registration</h1>
-<hr />
-<div class="row">
-    <div class="col">
-        <form asp-controller="FunClub" asp-action="Index">
+<div class="Reg row">
+
+        <form asp-controller="Acc" asp-action="Login">
             <div class="mb-3">
                 <label class="form-label" asp-for="Email"></label>
                 <input class="form-control" asp-for="Email" />
@@ -16,7 +16,7 @@
                 <span class="text-danger" asp-validation-for="Password"></span>
             </div>
 
-            <div class="mb-3">
+            <div class="Reg mb-3">
                 <label class="form-label" asp-for="ConfirmPassword"></label>
                 <input class="form-control" asp-for="ConfirmPassword" />
                 <span class="text-danger" asp-validation-for="ConfirmPassword"></span>

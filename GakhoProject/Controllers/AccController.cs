@@ -42,10 +42,14 @@ namespace GakhoProject.Controllers
             }
 
             await _userManager.AddToRoleAsync(user, "Customer");
-            return RedirectToAction(nameof(FunClubController1.Index), "Home");
+            return RedirectToAction(nameof(AccController.Index), "Log in");
 
         }
         public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Welcome()
         {
             return View();
         }
@@ -74,7 +78,7 @@ namespace GakhoProject.Controllers
 
 
                 await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return RedirectToAction(nameof(AccController.Welcome), "Welcome");
             }
             else
             {
