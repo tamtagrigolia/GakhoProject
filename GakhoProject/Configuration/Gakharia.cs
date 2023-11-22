@@ -9,7 +9,7 @@ namespace GakhoProject.Configuration
     {
         public Gakharia()
         {
-            CreateMap<UserRegistraionModel, IdentityUser>()
+            CreateMap<UserRegistrationModel, IdentityUser>()
                 .ForMember(x => x.UserName, Options => Options.MapFrom(x => x.Email));
         }
     }

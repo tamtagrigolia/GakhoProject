@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace GakhoProject.Data
 {
-	public class AplicationDbContext : IdentityDbContext
+	public class AplicationDbContext : IdentityDbContext<IdentityUser>
 	{
 		public AplicationDbContext(DbContextOptions <AplicationDbContext> options) : base(options)
 		{

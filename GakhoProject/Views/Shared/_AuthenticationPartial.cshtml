@@ -1,0 +1,17 @@
+﻿<form class="d-flex">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item"> 
+            <a class="nav-item">
+                <a class="nav-link text-dark"> @User.Identity.Name </a>
+        </li>
+        <a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="Logout">გამოსვლა</a>
+
+    }
+    else{
+    <a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="Register">რეგისტრაცია</a>
+
+    <a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="Login">ავტორიზაცია</a>
+    }
+</form>

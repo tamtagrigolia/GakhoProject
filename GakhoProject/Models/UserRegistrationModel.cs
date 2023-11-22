@@ -1,11 +1,10 @@
-﻿using Microsoft.Build.Framework;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using RequiredAttribute = Microsoft.Build.Framework.RequiredAttribute;
 
 namespace GakhoProject.Models
 {
-    public class UserRegistraionModel
+    public class UserRegistrationModel
+
     {
         [Required]
         [EmailAddress]
@@ -21,3 +20,6 @@ namespace GakhoProject.Models
 
     }
 }
+
+
+

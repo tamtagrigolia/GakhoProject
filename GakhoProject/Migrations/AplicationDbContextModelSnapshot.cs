@@ -100,15 +100,15 @@ namespace GakhoProject.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ef1e1cf3-3460-4c37-96e9-b0f6574cafe2",
-                            ConcurrencyStamp = "d2c61181-edba-4609-87c9-4c23c3d887f8",
+                            Id = "dd5c0cab-27be-4752-b52d-a0e4ed69cab3",
+                            ConcurrencyStamp = "4600f929-9790-42db-be54-daf8e2bd9e19",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8d1b6b18-80a1-44ac-a0c8-3dc908c9dae2",
-                            ConcurrencyStamp = "8d159136-d38a-4bb0-8e5e-5dddbd55dce8",
+                            Id = "59ede8e2-8160-4385-ad17-b74dc438af93",
+                            ConcurrencyStamp = "d5c94b71-d7bc-4366-ab7a-8f292db1ba83",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
