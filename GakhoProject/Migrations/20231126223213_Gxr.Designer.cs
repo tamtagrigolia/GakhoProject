@@ -4,6 +4,7 @@ using GakhoProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GakhoProject.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    partial class AplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231126223213_Gxr")]
+    partial class Gxr
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,16 +43,6 @@ namespace GakhoProject.Migrations
                         new
                         {
                             FullName = "tamta grigolia",
-                            Desc = "daibada 2002 weois"
-                        },
-                        new
-                        {
-                            FullName = "Giorgi",
-                            Desc = "daibada 1955 weois"
-                        },
-                        new
-                        {
-                            FullName = "tamta Gaxaria",
                             Desc = "daibada 2002 weois"
                         });
                 });
