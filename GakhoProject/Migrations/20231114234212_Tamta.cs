@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GakhoProject.Migrations
 {
-    public partial class Identity : Migration
+    public partial class Tamta : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,21 @@ namespace GakhoProject.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "classes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    YourFullName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PartiesName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_classes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +169,25 @@ namespace GakhoProject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "59ede8e2-8160-4385-ad17-b74dc438af93", "d5c94b71-d7bc-4366-ab7a-8f292db1ba83", "Customer", "CUSTOMER" },
+                    { "dd5c0cab-27be-4752-b52d-a0e4ed69cab3", "4600f929-9790-42db-be54-daf8e2bd9e19", "Admin", "ADMIN" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "classes",
+                columns: new[] { "Id", "DateOfBirth", "PartiesName", "YourFullName" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1792, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "ForGeo", "tamta grigolia" },
+                    { 2, new DateTime(1792, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Georgia dream", "irakli kobaxidze" },
+                    { 3, new DateTime(1792, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "ForGeo", "giorgi gaxaria" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -210,6 +244,9 @@ namespace GakhoProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "classes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

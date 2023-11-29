@@ -7,6 +7,11 @@ namespace GakhoProject.Configuration
 	{
 		Task Save();
 		public IPolitPartiesRepository PolitParty { get; }
-		public IPolitPartieService PolitPartieService { get; }
-	}
+		public IMemberRepository Member
+		{ get; }
+
+		public IMemberService MemberService { get; }
+        public IPolitPartieService PolitPartieService { get; }
+
+    }
 }

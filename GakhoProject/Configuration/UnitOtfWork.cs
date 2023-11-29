@@ -11,13 +11,19 @@ namespace GakhoProject.Configuration
 		private readonly AplicationDbContext _context;
 
 		public IPolitPartiesRepository PolitParty { get; private set; }
+		public IMemberRepository Member { get; private set; }
+
 
 		public IPolitPartieService PolitPartieService { get; private set; }
+		public IMemberService MemberService { get; private set; }
+
+
 		public UnitOfWork(AplicationDbContext context)
 		{
 			_context = context;
 			PolitParty = new PolitPartiesRepository(_context);
 			PolitPartieService = new PolitPartieService(PolitParty);
+
 		}
 
 			public async Task Save()

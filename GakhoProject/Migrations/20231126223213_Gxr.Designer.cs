@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GakhoProject.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20231106231459_RoleSeed")]
-    partial class RoleSeed
+    [Migration("20231126223213_Gxr")]
+    partial class Gxr
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,29 @@ namespace GakhoProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("GakhoProject.Models.Member", b =>
+                {
+                    b.Property<string>("FullName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("FullName");
+
+                    b.ToTable("members");
+
+                    b.HasData(
+                        new
+                        {
+                            FullName = "tamta grigolia",
+                            Desc = "daibada 2002 weois"
+                        });
+                });
 
             modelBuilder.Entity("GakhoProject.Models.PolitParties", b =>
                 {
@@ -48,29 +71,6 @@ namespace GakhoProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("classes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateOfBirth = new DateTime(1792, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PartiesName = "ForGeo",
-                            YourFullName = "tamta grigolia"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateOfBirth = new DateTime(1792, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PartiesName = "Georgia dream",
-                            YourFullName = "irakli kobaxidze"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateOfBirth = new DateTime(1792, 2, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PartiesName = "ForGeo",
-                            YourFullName = "giorgi gaxaria"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -98,22 +98,6 @@ namespace GakhoProject.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "ef1e1cf3-3460-4c37-96e9-b0f6574cafe2",
-                            ConcurrencyStamp = "d2c61181-edba-4609-87c9-4c23c3d887f8",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "8d1b6b18-80a1-44ac-a0c8-3dc908c9dae2",
-                            ConcurrencyStamp = "8d159136-d38a-4bb0-8e5e-5dddbd55dce8",
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

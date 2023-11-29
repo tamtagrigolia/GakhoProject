@@ -1,10 +1,13 @@
 ﻿using GakhoProject.Configuration;
 using GakhoProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GakhoProject.Controllers
 {
-	public class PolitPartieController : Controller
+    [Authorize]
+
+    public class PolitPartieController : Controller
 	{
 		private readonly IUnitOfWork _unitOfWork;
 		public PolitPartieController(IUnitOfWork unitOfWork)

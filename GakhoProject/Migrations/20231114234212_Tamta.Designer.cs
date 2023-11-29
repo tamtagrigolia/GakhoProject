@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GakhoProject.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20231106230433_Identity")]
-    partial class Identity
+    [Migration("20231114234212_Tamta")]
+    partial class Tamta
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,6 +98,22 @@ namespace GakhoProject.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "dd5c0cab-27be-4752-b52d-a0e4ed69cab3",
+                            ConcurrencyStamp = "4600f929-9790-42db-be54-daf8e2bd9e19",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "59ede8e2-8160-4385-ad17-b74dc438af93",
+                            ConcurrencyStamp = "d5c94b71-d7bc-4366-ab7a-8f292db1ba83",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
