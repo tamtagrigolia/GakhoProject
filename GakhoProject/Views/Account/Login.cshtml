@@ -1,78 +1,29 @@
 ﻿@model UserLoginModel
-
-
-<section class="vh-100">
-    <div class="container-fluid h-custom">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-9 col-lg-6 col-xl-5">
-                <img src='https://scontent.ftbs4-2.fna.fbcdn.net/v/t39.30808-6/361203522_3974053072821339_2712664260841874473_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eaR26n9IV_MAX9RvQkE&_nc_ht=scontent.ftbs4-2.fna&oh=00_AfAlvfeDasZU5ApFElUKzCNppi-7WnU6gPS31Pv3ipKSEw&oe=6556C0DD'
-                     class="img-fluid" alt="Sample image">
+<h1>Login</h1>
+<hr />
+<div class="row">
+    <div class="col">
+        <form asp-controller="Account" asp-action="Login">
+            <div class="mb-3">
+                <label class="form-label" asp-for="Email"></label>
+                <input class="form-control" asp-for="Email" />
+                <span class="text-danger" asp-validation-for="Email"></span>
             </div>
-            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form asp-controller="Home" asp-action="index">
-
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example3" asp-for="Email"></label>
-                        <input id="form3Example3" class="form-control form-control-lg" asp-for="Email" />
-                        <span class="text-danger" asp-validation-for="Email"></span>
-                    </div>
-
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="form3Example3" asp-for="Password"></label>
-                        <input id="form3Example3" class="form-control form-control-lg" asp-for="Password" />
-                        <span class="text-danger" asp-validation-for="Password"></span>
-                    </div>
-                    <div class="form-outline mb-4">
-                        <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(x=>x.RememberMe)
-                    </div>
-
-
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                        <input type="submit" value="Login" class="btn btn-success" />
-
-
-
-                    </div>
-                    @*    <div class="d-flex justify-content-center">
-                    <input type="submit" value="Register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" />
-                    </div>*@
-                </form>
-                <form asp-controller="Account" asp-action="Register">
-
-                    <p class="small fw-bold mt-2 pt-1 mb-0">
-                        Don't have an account?
-                        <input type="submit" value="Register" class="btn btn-success" />
-
-                    </p>
-                </form>
+            <div class="mb-3">
+                <label class="form-label" asp-for="Password"></label>
+                <input class="form-control" asp-for="Password" />
+                <span class="text-danger" asp-validation-for="Password"></span>
             </div>
-        </div>
+            <div class="mb-3">
+                <input class="form-check-input" asp-for="RememberMe" /> @Html.DisplayNameFor(x => x.RememberMe)
+            </div>
+            <div class="mb-3">
+                <input type="submit" value="Login" class="btn btn-success" />
+            </div>
+        </form>
     </div>
-    </div>
-    <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0">
-        Copyright © 2020. All rights reserved.
-    </div>
-    <!-- Copyright -->
-    <!-- Right -->
-    <div>
-        <a href="#!" class="text-white me-4">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#!" class="text-white me-4">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#!" class="text-white me-4">
-            <i class="fab fa-google"></i>
-        </a>
-        <a href="#!" class="text-white">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-    </div>
-    <!-- Right -->
-    </div>
-</section>
-@section Scripts{
+</div>
+@section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
