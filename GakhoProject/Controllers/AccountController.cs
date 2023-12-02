@@ -89,14 +89,23 @@ namespace GakhoProject.Controllers
 
             }
 		
+
+
 		[HttpPost]
 		public async Task<IActionResult> Logout()
 		{
 			await _signInManager.SignOutAsync();
 			return RedirectToAction(nameof(HomeController.Index), "Home");
 		}
-	}
-    } 
+        public async Task<IActionResult> Welcome()
+        {
+            return View();
+        }
+
+
+
+    }
+} 
 
 
 

@@ -18,15 +18,19 @@ namespace GakhoProject.Configuration
 		public IMemberService MemberService { get; private set; }
 
 
-		public UnitOfWork(AplicationDbContext context)
-		{
-			_context = context;
-			PolitParty = new PolitPartiesRepository(_context);
-			PolitPartieService = new PolitPartieService(PolitParty);
+        public UnitOfWork(AplicationDbContext context)
+        {
+            _context = context;
+            PolitParty = new PolitPartiesRepository(_context);
+            Member = new MemberRepository(_context);
 
-		}
+            PolitPartieService = new PolitPartieService(PolitParty);
+            MemberService = new MemberService(Member);
 
-			public async Task Save()
+        }
+
+
+        public async Task Save()
 		{
 			await _context.SaveChangesAsync();
 				}
