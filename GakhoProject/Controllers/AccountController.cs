@@ -49,63 +49,65 @@ namespace GakhoProject.Controllers
 
 
 
-		public IActionResult Login()
-		{
-			return View();
-		}
-
-
-		[HttpPost]
-            [ValidateAntiForgeryToken]
-            public async Task<IActionResult> Login(UserLoginModel userModel)
-            {
-                if (!ModelState.IsValid)
-                    return View(userModel);
-
-                IdentityUser user = await _userManager.FindByEmailAsync(userModel.Email);
-
-                if (user != null && await _userManager.CheckPasswordAsync(user, userModel.Password))
-                {
-                    ClaimsIdentity identity = new(IdentityConstants.ApplicationScheme);
-
-                    identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
-                    identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
-
-                    var roles = await _userManager.GetRolesAsync(user);
-                    foreach (var role in roles)
-                    {
-                        identity.AddClaim(new Claim(ClaimTypes.Role, role));
-                    }
-
-
-                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
-                    return RedirectToAction(nameof(HomeController.Index), "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid credentials");
-                    return View();
-                }
-
-            }
-		
-
-
-		[HttpPost]
-		public async Task<IActionResult> Logout()
-		{
-			await _signInManager.SignOutAsync();
-			return RedirectToAction(nameof(HomeController.Index), "Home");
-		}
-        public async Task<IActionResult> Welcome()
+        public IActionResult Login()
         {
             return View();
         }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(UserLoginModel userModel)
+        {
+
+            if (!ModelState.IsValid)
+                return View(userModel);
+
+            IdentityUser user = await _userManager.FindByEmailAsync(userModel.Email);
+
+            if (user != null && await _userManager.CheckPasswordAsync(user, userModel.Password))
+            {
+                ClaimsIdentity identity = new(IdentityConstants.ApplicationScheme);
+
+                identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.Id));
+                identity.AddClaim(new Claim(ClaimTypes.Name, user.UserName));
+
+                var roles = await _userManager.GetRolesAsync(user);
+                foreach (var role in roles)
+                {
+                    identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                }
+
+
+                await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
+                return RedirectToAction("Index", "Test");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Invalid credentials");
+                return View();
+            }
+
+
+
+        }
+
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
 
     }
-} 
+    }
+
+
+
+    
 
 
 

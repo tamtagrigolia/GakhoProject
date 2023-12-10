@@ -2,54 +2,44 @@
 
 
 @model UserRegistrationModel
+@{
+    Layout = null;
 
-@*<section class="vh-100 bg-image"*@
-@*style="background-image: url('https://scontent.ftbs4-2.fna.fbcdn.net/v/t39.30808-6/361203522_3974053072821339_2712664260841874473_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eaR26n9IV_MAX9RvQkE&_nc_ht=scontent.ftbs4-2.fna&oh=00_AfAlvfeDasZU5ApFElUKzCNppi-7WnU6gPS31Pv3ipKSEw&oe=6556C0DD');">*@
-<div class="mask d-flex align-items-center h-100 gradient-custom-3">
-    <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                <div class="card" style="border-radius: 15px;">
-                    <div class="card-body p-5">
-                        <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+}
 
-                        <form asp-controller="Account" asp-action="Register">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/slider.css" asp-append-version="true" />
 
 
-
-                            <div class="form-outline mb-4">
-                                @*<label class="form-label" for="form3Example3cg" asp-for="Email"></label>*@
-                                <input class="form-control form-control-lg" id="form3Example3cg" asp-for="Email" />
-                                <span class="text-danger" asp-validation-for="Email"></span>
-                            </div>
-
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3cg" asp-for="Password"></label>
-                                <input class="form-control form-control-lg" id="form3Example4cg" asp-for="Password" />
-                                <span class="text-danger" asp-validation-for="Password"></span>
-                            </div>
-
-                            <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3cg" asp-for="ConfirmPassword"></label>
-                                <input class="form-control form-control-lg" id="form3Example4cg" asp-for="ConfirmPassword" />
-                                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
-                            </div>
+<!DOCTYPE html>
+<html lang="en">
 
 
-
-
-                            <div class="d-flex justify-content-center">
-                                <input type="submit" value="Register" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" />
-                            </div>
-
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="login-form">
+    <div class="text">
+        ავტორიზაცია
     </div>
+    <form asp-controller="Account" asp-action="Register">
+        <div class="field">
+            <div class="fas fa-envelope"></div>
+            <input type="text" placeholder="Email" asp-for="Email">
+
+        </div>
+        <div class="field">
+            <div class="fas fa-lock"></div>
+            <input type="password" placeholder="Password" asp-for="Password">
+        </div>
+        <div class="field">
+            <div class="fas fa-lock"></div>
+            <input type="password" placeholder="ConfirmPassword" asp-for="ConfirmPassword">
+        </div>
+        <button>LOGIN</button>
+        <div class="link">
+            You Have Account?
+            <a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="Login">შესვლა</a>
+        </div>
+
+    </form>
 </div>
 
 @section Scripts{

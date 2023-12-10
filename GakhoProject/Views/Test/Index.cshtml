@@ -1,0 +1,72 @@
+﻿
+<link rel="stylesheet" href="~/css/ind.css" asp-append-version="true" />
+
+@{
+	Layout=null;
+}
+
+<header class="header">
+	<h1>გამარჯობა @User.Identity.Name 	
+		<a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="Logout">გამოსვლა</a>
+
+	</h1>
+
+</header>
+
+<nav class="sticky navbar">
+	<div class="brand  display__logo">
+		<a href="#top" class="nav__link"> <span class="logo">Gakharia For Georgia</span></a>
+	</div>
+
+	<input type="checkbox" id="nav" class="hidden" />
+	<label for="nav" class="nav__open"><i></i><i></i><i></i></label>
+	<div class="nav">
+		<ul class="nav__items">
+			<li class="nav__item"><a href="#home" class="nav__link"> მხარდამჭერთა სია</a></li>
+
+			<li class="nav__item"><a href="#about" class="nav__link">გახარიას სურათები </a></li>
+			<li class="nav__item"><a href="#portfolio" class="nav__link">პარტიის შესახებ</a></li>
+			<li class="nav__item"><a href="#contact" class="nav__link">კონტაქტი</a></li>
+		</ul>
+	</div>
+</nav>
+
+<main>
+	<section class="home">
+		<div id="home">
+			<h1>
+				<button>
+					<a class="nav-link" asp-controller="PolitPartie" asp-action="Index">მხარდამჭერდა სია</a>
+				</button>
+			</h1>
+		</div>
+	</section>
+	<section class="about">
+		<div id="about">
+			<h1>
+				<h1>
+					<button>
+						<a class="nav-link" asp-controller="Gallery" asp-action="Index">გახარია</a>
+					</button>
+				</h1>
+
+
+
+			</h1>
+		</div>
+	</section>
+	<section class="portfolio">
+		<div id="portfolio">
+			<h1>პარტიის შესახებ</h1>
+		</div>
+	</section>
+	<section class="contact">
+		<div id="contact">
+			<h1>კონტაქტი</h1>
+		</div>
+	</section>
+</main>
+
+<footer class="footer">
+	<h1>Footer</h1>
+</footer>
