@@ -1,0 +1,49 @@
+﻿
+
+
+@model UserRegistrationModel
+@{
+    Layout = null;
+
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/slider.css" asp-append-version="true" />
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<div class="login-form">
+    <div class="text">
+        ავტორიზაცია
+    </div>
+    <form asp-controller="Account" asp-action="Register">
+        <div class="field">
+            <div class="fas fa-envelope"></div>
+            <input type="text" placeholder="Email" asp-for="Email">
+
+        </div>
+        <div class="field">
+            <div class="fas fa-lock"></div>
+            <input type="password" placeholder="Password" asp-for="Password">
+        </div>
+        <div class="field">
+            <div class="fas fa-lock"></div>
+            <input type="password" placeholder="ConfirmPassword" asp-for="ConfirmPassword">
+        </div>
+        <button>LOGIN</button>
+        <div class="link">
+            You Have Account?
+            <a class="btn btn-outline-success" asp-area="" asp-controller="Account" asp-action="Login">შესვლა</a>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

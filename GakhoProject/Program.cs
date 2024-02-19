@@ -18,7 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
     options.User.RequireUniqueEmail = false;
 }).AddEntityFrameworkStores<AplicationDbContext>();
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(typeof(Gakharia));
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();
@@ -35,7 +35,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

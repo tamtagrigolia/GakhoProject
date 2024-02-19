@@ -1,19 +1,54 @@
-﻿<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active" data-interval="10000">
-            <img src="https://scontent.ftbs10-1.fna.fbcdn.net/v/t39.30808-6/298061686_3674367712789878_6190048138034344840_n.jpg?stp=cp6_dst-jpg&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=z3ggd8OnuhUAX_IJlwd&_nc_ht=scontent.ftbs10-1.fna&oh=00_AfCdoUfsGmYOUDWDT83kysp9em-NGtbF9pX4JDB7Aif9aA&oe=6556DCFA" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-interval="2000">
-            <img src="https://scontent.ftbs10-1.fna.fbcdn.net/v/t39.30808-6/361203522_3974053072821339_2712664260841874473_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eaR26n9IV_MAX9RvQkE&_nc_ht=scontent.ftbs10-1.fna&oh=00_AfDRpkwHRgt3M25R7pXCgorXJC5g4qVPGawTrDDe5WzRUg&oe=6556C0DD" class="d-block w-100" alt="...">
-        </div>
-
+﻿﻿
+<html>
+<body>
+    <div class="container">
+ <img src="~/img/grg.jpg">
+        <img src="~/img/grg.jpg">
+        <img src="~/img/gkh1.jpg">
+        <img src="~/img/gkh2.jpg"> <img src="~/img/grg.jpg">
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+</body>
+</html>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        display: grid;
+        place-items: center;
+    }
+
+    img {
+        width: 30%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-box-reflect: below 2px linear-gradient(transparent, transparent, #0004);
+        transform-origin: center;
+        transform: perspective(800px) rotateY(25deg);
+        transition: 0.5s;
+    }
+
+    .container {
+        max-width: 600px;
+        max-height: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .container:hover img {
+            opacity: 0.3;
+        }
+
+        .container img:hover {
+            transform: perspective(800px) rotateY(0deg);
+            opacity: 1;
+        }
+</style>
